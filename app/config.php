@@ -36,7 +36,7 @@ function  total_number_of_women(){
 #NOMBRE DE POPULATION PAR COMMUNE
 
 function nombre_population_commune(){
-	$sql = "select level_1.sid2 as COMMUNE , SUM(qs06) as NOMBRETOTAL from `str_menage` left join level_1 on str_menage_id = level_1.level_1_id GROUP BY level_1.sid2";
+	$sql = "select `level-1`.`sid2` as COMMUNE , SUM(qs06) as NOMBRETOTAL from `str_menage` left join `level-1` on `str_menage-id` = `level-1`.`level-1-id` GROUP BY `level-1`.sid2";
 	return executeQuery($sql);
 
 }
@@ -46,7 +46,7 @@ function nombre_population_commune(){
 #NOMBRE DE MENAGE PAR PROVINCE
 
 function menage_province(){
-	$sql = "SELECT level_1.sid1 as PROVINCE, SUM(str_menage.qs06) as nombre_total FROM `str_menage` LEFT JOIN level_1 ON str_menage_id = level_1.level_1_id GROUP BY level_1.sid1";
+	$sql = "SELECT `level-1`.`sid1` as PROVINCE, SUM(str_menage.qs06) as nombre_total FROM `str_menage` LEFT JOIN `level-1` ON `str_menage-id` = `level-1`.`level-1-id` GROUP BY `level-1`.`sid1`";
 		$result = executeQuery($sql);
 		$provinces = burundiProvince();
 		$data = [];
@@ -63,7 +63,7 @@ function menage_province(){
 ## NOMBRE DE POPULATION PAR PROVINCE
 
 function nombre_population_province(){
-	$sql = "select level_1.sid1 as PROVINCE , SUM(qs06) as NOMBRETOTAL from `str_menage` left join level_1 on str_menage_id = level_1.level_1_id GROUP BY level_1.sid1";
+	$sql = "select `level-1`.`sid1` as PROVINCE , SUM(qs06) as NOMBRETOTAL from `str_menage` left join `level-1` on `str_menage-id` = `level-1`.`level-1-id` GROUP BY `level-1`.sid1";
 
 	$result = executeQuery($sql);
 	$provinces = burundiProvince();
